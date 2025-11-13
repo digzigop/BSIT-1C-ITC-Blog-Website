@@ -702,3 +702,49 @@ hr {
         max-width: 100%;
     }
 }
+/* ...existing code... */
+
+/* size used for both side GIFs */
+:root{
+    --side-gif-size-width: 150px;
+    --side-gif-size-height: 500px; /* adjust as needed */
+}
+
+/* fixed GIFs at the extreme left and right, same width/height */
+#wall-left-gif,
+#wall-right-gif {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--side-gif-size-width);
+    height: var(--side-gif-size-height); /* ensures same width & height */
+    object-fit: cover;
+    z-index: 999;
+    pointer-events: none; /* let clicks pass through */
+}
+
+/* keep them flush to the edges (tweak offsets if needed) */
+#wall-left-gif { left: 6px; }
+#wall-right-gif { right: 6px; }
+
+/* ensure page content (including buttons) stays between the GIFs */
+body.contact-page {
+    padding-left: calc(var(--side-gif-size) + 24px);
+    padding-right: calc(var(--side-gif-size) + 24px);
+    box-sizing: border-box;
+}
+
+/* small screens: hide GIFs and remove extra padding */
+@media (max-width: 900px) {
+    #wall-left-gif,
+    #wall-right-gif {
+        display: none;
+    }
+
+    body.contact-page {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* ...existing code... */

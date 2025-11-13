@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="Style.css">
 </head>
 <body class="contact-page">
+    <!-- added fixed-side GIFs -->
+    <img id="wall-left-gif" src="Blog GIF 1.gif" alt="Left side GIF">
+    <img id="wall-right-gif" src="Blog GIF 2.gif" alt="Right side GIF">
+    <!-- ...existing code... -->
     <nav class="cool-navbar">
         <div id="h1" class="logo">-Contact Us-</div>
         <ul class="nav-buttons">
@@ -21,7 +25,7 @@
         <h1 class="contact-title">Contact the Cyber Guardians</h1>
         <p class="contact-desc">Click a button below to reach out to our group or individual members!</p>
 
-        <!-- Group Contact -->
+        <!-- Group Contact (removed inline GIFs here) -->
         <div class="contact-group">
             <button class="main-contact-btn" onclick="toggleGroupContact()">Group Contact</button>
             <div class="group-subbuttons hidden">
@@ -30,7 +34,7 @@
             </div>
         </div>
 
-        <!-- Members Layout -->
+        <!-- Members Layout: removed inline GIFs around member buttons -->
         <div class="members-layout">
             <div class="top-row">
                 <div class="member">
@@ -103,6 +107,7 @@
         </div>
     </div>
 
+    <!-- ...existing script code... -->
     <script>
         function toggleMember(id) {
             const selected = document.getElementById(id);
