@@ -7,19 +7,28 @@
     <link rel="stylesheet" href="Style.css">
 </head>
 <body class="contact-page">
-    <!-- added fixed-side GIFs -->
-    <img id="wall-left-gif" src="Blog GIF 1.gif" alt="Left side GIF">
-    <img id="wall-right-gif" src="Blog GIF 2.gif" alt="Right side GIF">
-    <!-- ...existing code... -->
     <nav class="cool-navbar">
-        <div id="h1" class="logo">-Contact Us-</div>
-        <ul class="nav-buttons">
+        <div id="h1" class="logo">CyberGuardians</div>
+
+        <!-- Hamburger toggle (mobile) -->
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- nav menu -->
+        <ul id="navMenu" class="nav-buttons">
             <li><a href="index.html" class="nav-btn">Home</a></li>
             <li><a href="aboutUs.html" class="nav-btn">About</a></li>
             <li><a href="ContactUs.html" class="nav-btn">Contact</a></li>
             <li><a href="blog.html" class="nav-btn">Blog</a></li>
         </ul>
     </nav>
+
+    <!-- added fixed-side GIFs -->
+    <img id="wall-left-gif" src="Blog GIF 1.gif" alt="Left side GIF">
+    <img id="wall-right-gif" src="Blog GIF 2.gif" alt="Right side GIF">
 
     <div class="contact-container">
         <h1 class="contact-title">Contact the Cyber Guardians</h1>
@@ -126,6 +135,35 @@
         function showPhone() {
             alert("Call us at: +63 9509034091");
         }
+        (function(){
+        const toggle = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+
+        toggle.addEventListener('click', function(){
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!expanded));
+            menu.classList.toggle('active');
+            this.classList.toggle('open');
+        });
+
+        // Close menu when a nav link is clicked (mobile)
+        menu.addEventListener('click', function(e){
+            if(e.target.tagName === 'A' && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                toggle.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // close on resize to desktop
+        window.addEventListener('resize', function(){
+            if(window.innerWidth > 900) {
+                menu.classList.remove('active');
+                toggle.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
     </script>
 </body>
 </html>

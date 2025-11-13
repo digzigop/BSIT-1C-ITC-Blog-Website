@@ -8,8 +8,17 @@
 </head>
 <body>
     <nav class="cool-navbar">
-        <div id="h1" class="logo">Blog</div>
-        <ul class="nav-buttons">
+        <div id="h1" class="logo">CyberGuardians</div>
+
+        <!-- Hamburger toggle (mobile) -->
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- nav menu -->
+        <ul id="navMenu" class="nav-buttons">
             <li><a href="index.html" class="nav-btn">Home</a></li>
             <li><a href="aboutUs.html" class="nav-btn">About</a></li>
             <li><a href="ContactUs.html" class="nav-btn">Contact</a></li>
@@ -100,5 +109,38 @@ At Cyber Guardians, we're here to guide you through the digital world — one po
         <a href="aboutUs.html" id="box3"><span>ABOUT US</span></a>
         <a href="ContactUs.html" id="box4"><span>CONTACT US</span></a>
     </div>
+
+     <script>
+    (function(){
+        const toggle = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+
+        toggle.addEventListener('click', function(){
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!expanded));
+            menu.classList.toggle('active');
+            this.classList.toggle('open');
+        });
+
+        // Close menu when a nav link is clicked (mobile)
+        menu.addEventListener('click', function(e){
+            if(e.target.tagName === 'A' && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                toggle.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // close on resize to desktop
+        window.addEventListener('resize', function(){
+            if(window.innerWidth > 900) {
+                menu.classList.remove('active');
+                toggle.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
+    </script>
+    
 </body>
 </html>

@@ -747,4 +747,77 @@ body.contact-page {
     }
 }
 
-/* ...existing code... */
+/* NAV TOGGLE (hamburger) */
+.nav-toggle {
+    display: none; /* shown only on small screens */
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+.nav-toggle .bar {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: white;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* hamburger open state */
+.nav-toggle.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile behavior: hide standard nav, use toggle */
+@media (max-width: 900px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-buttons {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0 0 0;
+        padding: 12px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .nav-buttons.active {
+        display: flex;
+    }
+
+    .cool-navbar {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 10px;
+        border-radius: 8px;
+    }
+}
+
+/* keep desktop layout intact */
+@media (min-width: 901px) {
+    .nav-buttons {
+        display: flex !important;
+    }
+}
