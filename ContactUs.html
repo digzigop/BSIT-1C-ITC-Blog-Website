@@ -40,68 +40,58 @@
         <div class="members-layout">
             <div class="top-row">
                 <div class="member">
-                    <button class="member-btn" onclick="toggleMember('von')">Von's Contact</button>
-                    <div id="von" class="member-links hidden">
-                        <img src="Von Blog pfp.jpg" alt="Von" class="member-photo">
-                        <div class="social-buttons">
-                            <a href="https://www.facebook.com/von.victoria.3" target="_blank" class="sub-btn">Facebook</a>
-                            <a href="https://www.instagram.com/vonehvix_/" target="_blank" class="sub-btn">Instagram</a>
-                            <a href="https://github.com/2501115845" target="_blank" class="sub-btn">GitHub</a>
-                            <a href="mailto:vonvictoria17@gmail.com" class="sub-btn">Email</a>
-                        </div>
-                    </div>
+                    <button class="member-btn" onclick="openMemberModal('dvaughn')">D'Vaughn's Contact</button>
                 </div>
 
                 <div class="member">
-                    <button class="member-btn" onclick="toggleMember('dvaughn')">D'Vaughn's Contact</button>
-                    <div id="dvaughn" class="member-links hidden">
-                        <img src="Dbon Blog pfp.jpg" alt="D'Vaughn" class="member-photo">
-                        <div class="social-buttons">
-                            <a href="https://www.facebook.com/dvaughn.babanto" target="_blank" class="sub-btn">Facebook</a>
-                            <a href="https://www.instagram.com/digidigz/" target="_blank" class="sub-btn">Instagram</a>
-                            <a href="https://github.com/digzigop" target="_blank" class="sub-btn">GitHub</a>
-                            <a href="mailto:digoybabanto12@gmail.com" class="sub-btn">Email</a>
-                        </div>
-                    </div>
+                    <button class="member-btn" onclick="openMemberModal('vaughn')">Vaughn's Contact</button>
                 </div>
 
                 <div class="member">
-                    <button class="member-btn" onclick="toggleMember('vaughn')">Vaughn's Contact</button>
-                    <div id="vaughn" class="member-links hidden">
-                        <img src="Vaughn Blog pfp.jpg" alt="Vaughn" class="member-photo">
-                        <div class="social-buttons">
-                            <a href="https://www.facebook.com/vaughn.aram.Codm" target="_blank" class="sub-btn">Facebook</a>
-                            <a href="https://www.instagram.com/nerfedvaughn/" target="_blank" class="sub-btn">Instagram</a>
-                            <a href="https://github.com/2501110162-create" target="_blank" class="sub-btn">GitHub</a>
-                            <a href="mailto:authenticbon@gmail.com" class="sub-btn">Email</a>
-                        </div>
-                    </div>
+                    <button class="member-btn" onclick="openMemberModal('kim')">Kim's Contact</button>
                 </div>
             </div>
 
             <div class="bottom-row">
                 <div class="member">
-                    <button class="member-btn" onclick="toggleMember('kim')">Kim's Contact</button>
-                    <div id="kim" class="member-links hidden">
-                        <img src="Kim Blog pfp.jpg" alt="Kim" class="member-photo">
-                        <div class="social-buttons">
-                            <a href="https://www.facebook.com/jehoiakim.luna" target="_blank" class="sub-btn">Facebook</a>
-                            <a href="https://www.instagram.com/jezeerrlunaaa01/" target="_blank" class="sub-btn">Instagram</a>
-                            <a href="https://github.com/jezerrlunz" target="_blank" class="sub-btn">GitHub</a>
-                            <a href="mailto:jehoiakimluna@gmail.com" class="sub-btn">Email</a>
-                        </div>
-                    </div>
+                    <button class="member-btn" onclick="openMemberModal('leomar')">Leomar's Contact</button>
                 </div>
 
                 <div class="member">
-                    <button class="member-btn" onclick="toggleMember('leomar')">Leomar's Contact</button>
-                    <div id="leomar" class="member-links hidden">
-                        <img src="Leomar Blog pfp.jpg" alt="Leomar" class="member-photo">
-                        <div class="social-buttons">
-                            <a href="https://www.facebook.com/hzhsg.gaha" target="_blank" class="sub-btn">Facebook</a>
-                            <a href="https://www.instagram.com/leo.mis_u/" target="_blank" class="sub-btn">Instagram</a>
-                            <a href="https://github.com/Leo-dave1051" target="_blank" class="sub-btn">GitHub</a>
-                            <a href="mailto:leomardavepogi@gmail.com" class="sub-btn">Email</a>
+                    <button class="member-btn" onclick="openMemberModal('von')">Von's Contact</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member Modal -->
+        <div id="memberModal" class="member-modal hidden">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeMemberModal()">✕</button>
+                <div class="modal-body">
+                    <img id="modalPhoto" src="" alt="Member" class="modal-photo">
+                    <div class="modal-info">
+                        <h2 id="modalName"></h2>
+                        <div class="info-item">
+                            <strong>Age:</strong>
+                            <span id="modalAge"></span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Address:</strong>
+                            <span id="modalAddress"></span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Course:</strong>
+                            <span id="modalCourse"></span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Section:</strong>
+                            <span id="modalSection"></span>
+                        </div>
+                        <div class="modal-social-buttons">
+                            <a id="modalFacebook" href="#" target="_blank" class="sub-btn">Facebook</a>
+                            <a id="modalInstagram" href="#" target="_blank" class="sub-btn">Instagram</a>
+                            <a id="modalGithub" href="#" target="_blank" class="sub-btn">GitHub</a>
+                            <a id="modalEmail" href="#" class="sub-btn">Email</a>
                         </div>
                     </div>
                 </div>

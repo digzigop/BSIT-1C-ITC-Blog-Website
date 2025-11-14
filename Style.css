@@ -291,6 +291,136 @@ hr {
     text-align: center;
 }
 
+/* ===== MEMBER MODAL ===== */
+.member-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.member-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.member-modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(0, 0, 20, 0.95), rgba(0, 0, 139, 0.95));
+    border: 3px solid rgb(255, 220, 0);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 0 50px rgba(255, 220, 0, 0.5);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(45deg, rgb(255, 174, 0), rgb(255, 220, 0));
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: black;
+    font-weight: bold;
+}
+
+.modal-close:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 220, 0, 0.8);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.modal-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid rgb(255, 220, 0);
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(255, 220, 0, 0.6);
+}
+
+.modal-info {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Audiowide', sans-serif;
+}
+
+.modal-info h2 {
+    color: rgb(255, 220, 0);
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.info-item {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 12px 0;
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.info-item strong {
+    color: rgb(255, 220, 0);
+    min-width: 80px;
+}
+
+.info-item span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-social-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
 .member-btn {
     margin-top: 10px;
     padding: 12px 18px;
@@ -414,9 +544,9 @@ hr {
 }
 
 .central-image {
-    max-width: 700px;
+    max-width: 1000px;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
     border: 3px solid rgb(255, 174, 0);
     box-shadow: 0 0 20px rgba(255, 220, 0, 0.5);
 }
@@ -530,27 +660,36 @@ hr {
 
 /* ===== SIDE GIFs ===== */
 :root {
-    --side-gif-size-width: 150px;
-    --side-gif-size-height: 500px;
+    --contact-side-gif-size-width: 150px;
+    --contact-side-gif-size-height: 500px;
+    --about-side-gif-size-width: 250px;
+    --about-side-gif-size-height: 500px;
 }
 
 #wall-left-gif, #wall-right-gif {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    width: var(--side-gif-size-width);
-    height: var(--side-gif-size-height);
+    width: var(--contact-side-gif-size-width);
+    height: var(--contact-side-gif-size-height);
+    width: var(--about-side-gif-size-width);
+    height: var(--about-side-gif-size-height);
     object-fit: cover;
     z-index: 999;
     pointer-events: none;
 }
 
-#wall-left-gif { left: 6px; }
-#wall-right-gif { right: 6px; }
+#wall-left-gif { left: 20px; }
+#wall-right-gif { right: 20px; }
 
 body.contact-page {
-    padding-left: calc(var(--side-gif-size-width) + 24px);
-    padding-right: calc(var(--side-gif-size-width) + 24px);
+    padding-left: calc(var(--contact-side-gif-size-width) + 24px);
+    padding-right: calc(var(--contact-side-gif-size-width) + 24px);
+}
+
+body.about-page {
+    padding-left: calc(var(--about-side-gif-size-width) + 24px);
+    padding-right: calc(var(--about-side-gif-size-width) + 24px);
 }
 
 /* ===== NAV TOGGLE (HAMBURGER) ===== */
@@ -655,6 +794,11 @@ body.contact-page {
         padding-right: 16px;
     }
 
+    body.about-page {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
     .top-row, .bottom-row {
         gap: 30px;
         flex-direction: column;
@@ -699,18 +843,9 @@ body.contact-page {
         font-size: 16px;
     }
 
-    .member-links {
-        width: 100%;
-    }
-
     .member-photo {
         width: 110px;
         height: 110px;
-    }
-
-    .social-buttons {
-        width: 100%;
-        flex-direction: column;
     }
 
     .group-subbuttons {
@@ -751,6 +886,28 @@ body.contact-page {
         max-width: 300px;
         margin-top: 15px;
         opacity: 1;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+
+    .modal-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .modal-info h2 {
+        font-size: 20px;
+    }
+
+    .info-item {
+        font-size: 13px;
+    }
+
+    .modal-social-buttons {
+        gap: 10px;
     }
 }
 
@@ -831,6 +988,53 @@ body.contact-page {
     .news-grid {
         padding: 20px 10px;
         gap: 15px;
+    }
+
+    .modal-content {
+        padding: 25px 15px;
+        border-radius: 15px;
+    }
+
+    .modal-close {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .modal-body {
+        gap: 20px;
+    }
+
+    .modal-photo {
+        width: 140px;
+        height: 140px;
+    }
+
+    .modal-info h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .info-item {
+        font-size: 12px;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .info-item strong {
+        min-width: auto;
+    }
+
+    .modal-social-buttons {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .sub-btn {
+        width: 100%;
     }
 }
 
