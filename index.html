@@ -8,28 +8,150 @@
 </head>
 <body>
     <nav class="cool-navbar">
-        <div id="h1" class="logo">CyberGuardians</div>
+    <div id="h1" class="logo">CyberGuardians</div>
+    
+    <!-- Hamburger toggle (mobile) -->
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    
+    <!-- nav menu -->
+    <ul id="navMenu" class="nav-buttons">
+        <li><a href="index.html" class="nav-btn">Home</a></li>
+        <li><a href="AboutUs.html" class="nav-btn">About</a></li>
+        <li><a href="ContactUs.html" class="nav-btn">Contact</a></li>
+        <li><a href="Blog.html" class="nav-btn">Blog</a></li>
+        
+        <!-- More Dropdown Menu -->
+        <li class="dropdown">
+            <a href="#" class="nav-btn dropdown-toggle">More <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-menu">
+                <!-- Cyber Threats Section -->
+                <div class="dropdown-section">
+                    <a href="#" class="section-title">
+                        <i class="fas fa-shield-virus"></i> Cyber Threats
+                    </a>
+                    <div class="subsection">
+                        <a href="https://dict.gov.ph/cybersecurity" class="subsection-item">
+                            <i class="fas fa-bug"></i> Malware
+                        </a>
+                        <a href="https://ntc.gov.ph" class="subsection-item">
+                            <i class="fas fa-fish"></i> Phishing
+                        </a>
+                        <a href="https://cert.ph" class="subsection-item">
+                            <i class="fas fa-lock"></i> Ransomware
+                        </a>
+                        <a href="https://privacy.gov.ph" class="subsection-item">
+                            <i class="fas fa-database"></i> Data Breaches
+                        </a>
+                    </div>
+                </div>
 
-        <!-- Hamburger toggle (mobile) -->
-        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+                <!-- Scam Awareness Section -->
+                <div class="dropdown-section">
+                    <a href="#" class="section-title">
+                        <i class="fas fa-exclamation-triangle"></i> Scam Awareness
+                    </a>
+                    <div class="subsection">
+                        <a href="https://privacy.gov.ph" class="subsection-item">
+                            <i class="fas fa-envelope-open-text"></i> Email Scams
+                        </a>
+                        <a href="https://www.facebook.com/ScamWatchPH" class="subsection-item">
+                            <i class="fas fa-globe"></i> Fake Websites
+                        </a>
+                        <a href="https://dict.gov.ph" class="subsection-item">
+                            <i class="fas fa-user-secret"></i> Social Engineering
+                        </a>
+                        <a href="https://privacy.gov.ph/data-privacy-toolkit/" class="subsection-item">
+                            <i class="fas fa-id-card"></i> Identity Theft
+                        </a>
+                    </div>
+                </div>
 
-        <!-- nav menu -->
-        <ul id="navMenu" class="nav-buttons">
-            <li><a href="index.html" class="nav-btn">Home</a></li>
-            <li><a href="AboutUs.html" class="nav-btn">About</a></li>
-            <li><a href="ContactUs.html" class="nav-btn">Contact</a></li>
-            <li><a href="Blog.html" class="nav-btn">Blog</a></li>
-        </ul>
-    </nav>
+                <!-- Prevention & Safety Section -->
+                <div class="dropdown-section">
+                    <a href="#" class="section-title">
+                        <i class="fas fa-shield-alt"></i> Prevention & Safety
+                    </a>
+                    <div class="subsection">
+                        <a href="https://cybersafe.gov.ph" class="subsection-item">
+                            <i class="fas fa-user-graduate"></i> Beginner Safety Guide
+                        </a>
+                        <a href="https://cert.ph/resources" class="subsection-item">
+                            <i class="fas fa-cogs"></i> Advanced Security Tips
+                        </a>
+                        <a href="https://acg.pnp.gov.ph" class="subsection-item">
+                            <i class="fas fa-toolbox"></i> Tools & Resources
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Learning Center Section -->
+                <div class="dropdown-section">
+                    <a href="#" class="section-title">
+                        <i class="fas fa-graduation-cap"></i> Learning Center
+                    </a>
+                    <div class="subsection">
+                        <a href="https://dict.gov.ph/cybersecurity" class="subsection-item">
+                            <i class="fas fa-book-open"></i> Cybersecurity Basics
+                        </a>
+                        <a href="https://www.unicef.org/philippines/online-safety" class="subsection-item">
+                            <i class="fas fa-users"></i> For Parents
+                        </a>
+                        <a href="https://dict.gov.ph/digitaljobsph" class="subsection-item">
+                            <i class="fas fa-user-graduate"></i> For Students
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="dropdown-section">
+                    <a href="#" class="section-title">
+                        <i class="fas fa-wrench"></i> Tools
+                    </a>
+                    <div class="subsection">
+                        <a href="https://bitwarden.com/password-strength/" class="subsection-item">
+                            <i class="fas fa-key"></i> Password Strength Checker
+                        </a>
+                        <a href="https://transparencyreport.google.com/safe-browsing/search" class="subsection-item">
+                            <i class="fas fa-link"></i> Secure URL Checker
+                        </a>
+                        <a href="https://haveibeenpwned.com" class="subsection-item">
+                            <i class="fas fa-search"></i> Data Breach Lookup
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Items -->
+                <div class="dropdown-single-items">
+                    <a href="ContactUs.html" class="single-item">
+                        <i class="fas fa-flag"></i> Bug Reporting
+                    </a>
+                    <a href="Blog.html" class="single-item">
+                        <i class="fas fa-newspaper"></i> Cyber News
+                    </a>
+                    
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+    <!-- subtle animated background elements (0s/1s, spheres, circuits, noise) -->
+    <div id="animated-bg" aria-hidden="true">
+        <div class="binary-layer"></div>
+        <div class="sphere-layer"></div>
+        <div class="circuit-layer"></div>
+        <div class="noise-layer"></div>
+    </div>
 
     <hr>
     <br>
     <br>
     <br>
+
     <p id="border1" class="font1">Stay informed. Stay secure. Be a Cyber Guardian!</p>
     <hr>
     <br>
@@ -44,6 +166,47 @@
         </div>
     </a>
 
+    <!-- Interactive CTA: Quiz + Security Tip of the Day -->
+    <section class="interactive-section" aria-labelledby="interactiveTitle">
+        <div class="quiz-cta" id="interactiveQuiz">
+            <h2 id="interactiveTitle">Are you safe online? Take the 20‑second quiz!</h2>
+            <button id="openQuizBtn" class="quiz-button" aria-haspopup="dialog">Start 20s Quiz</button>
+            <p class="quiz-note">3 quick questions — fast feedback and tips.</p>
+        </div>
+
+        <div class="tips-of-day" aria-live="polite" aria-atomic="true">
+            <h3>Security Tip of the Day</h3>
+            <div class="tip-wrap">
+                <p id="tipText">Enable 2FA on all important accounts.</p>
+                <div class="tip-controls">
+                    <button id="prevTip" class="tip-btn" aria-label="Previous tip">&lt;</button>
+                    <button id="nextTip" class="tip-btn" aria-label="Next tip">&gt;</button>
+                </div>
+            </div>
+            <small class="tip-rotate-note">Tip updates every 6s</small>
+        </div>
+
+        <!-- Planet Cyber (restored) -->
+        <div id="globeWrap" class="globe-wrap" aria-hidden="false">
+            <div id="globe" class="globe" role="img" aria-label="Planet Cyber - rotating globe"></div>
+            <div class="globe-label">Planet Cyber — active threats</div>
+        </div>
+    </section>
+
+    <!-- Badges tray (local only) -->
+    <div id="badgeTray" class="badge-tray" aria-live="polite" aria-atomic="true">
+        <button id="openBadges" class="badge-toggle" aria-expanded="false" aria-controls="badgesPanel">Badges</button>
+        <div id="badgesPanel" class="badges-panel hidden" role="region" aria-label="Your badges">
+            <h4>Your Badges</h4>
+            <div id="badgesList" class="badges-list" aria-live="polite"></div>
+            <small class="badge-note">Badges are saved locally in your browser.</small>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+    <br>
+    <br>
     <h1 id="latest">MORE BLOGS:</h1>
     <br>
     <div class="news-grid">
@@ -100,13 +263,11 @@
         </a>
     </div>
 
-    <div class="button-container">
-        <a href="index.html" id="box1"><span>HOME</span></a>
-        <a href="Blog.html" id="box2"><span>BLOG</span></a>
-        <a href="AboutUs.html" id="box3"><span>ABOUT US</span></a>
-        <a href="ContactUs.html" id="box4"><span>CONTACT US</span></a>
-    </div>
+    <footer>
+     <p>© 2025 Cyber Guardian | Designed by BSIT-1C T294</p>
+    </footer>
 
+ <!-- existing navbar/menu script -->
  <script>
     (function(){
         const toggle = document.getElementById('navToggle');
@@ -139,9 +300,340 @@
     })();
     </script>
 
+<!-- Quiz, badges, glitch, animated background and Planet Cyber (Three.js) -->
+<script>
 
 
+/* ---------- Tips of the Day ---------- */
+const tips = [
+    "Enable 2FA on all important accounts.",
+    "Don't reuse passwords.",
+    "Double-check email senders before clicking.",
+    "Keep software and OS updated.",
+    "Use a reputable password manager."
+];
+let tipIdx = 0;
+const tipText = document.getElementById('tipText');
+const nextTip = document.getElementById('nextTip');
+const prevTip = document.getElementById('prevTip');
+function showTip(i){
+    tipIdx = (i + tips.length) % tips.length;
+    if(tipText) tipText.textContent = tips[tipIdx];
+}
+if(nextTip) nextTip.addEventListener('click', ()=> showTip(tipIdx + 1));
+if(prevTip) prevTip.addEventListener('click', ()=> showTip(tipIdx - 1));
+setInterval(()=> showTip(tipIdx + 1), 6000);
+showTip(0);
 
+/* ---------- Quiz Modal (dynamic) ---------- */
+const openQuizBtn = document.getElementById('openQuizBtn');
+const quizModalHtml = `
+<div id="quizModal" class="quiz-modal hidden" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+  <div class="quiz-modal-content" role="document" tabindex="-1">
+    <button class="quiz-close" aria-label="Close quiz">&times;</button>
+    <h2 id="quizTitle">Quick Security Quiz</h2>
+    <div class="quiz-meta">
+        <div class="quiz-timer">Time: <span id="quizTimer">20</span>s</div>
+        <div class="quiz-progress">Question: <span id="quizProgress">1</span>/<span id="quizTotal">3</span></div>
+    </div>
+    <div id="quizBody" class="quiz-body"></div>
+    <div class="quiz-footer">
+        <button id="quizNext" class="quiz-action">Next</button>
+        <button id="quizRetry" class="quiz-action hidden">Retake</button>
+    </div>
+  </div>
+</div>`;
+document.body.insertAdjacentHTML('beforeend', quizModalHtml);
 
+const quizModal = document.getElementById('quizModal');
+const quizClose = quizModal.querySelector('.quiz-close');
+const quizBody = document.getElementById('quizBody');
+const quizTimerEl = document.getElementById('quizTimer');
+const quizProgress = document.getElementById('quizProgress');
+const quizTotal = document.getElementById('quizTotal');
+const quizNext = document.getElementById('quizNext');
+const quizRetry = document.getElementById('quizRetry');
+
+const questions = [
+    { q: "Is using the same password across sites safe?", options: ["Yes","No"], a: 1 },
+    { q: "Should you enable 2FA where available?", options: ["No","Yes"], a: 1 },
+    { q: "If an email asks for login details, what should you do?", options: ["Provide details","Verify sender & link","Ignore everything"], a: 1 }
+];
+
+let current = 0, score = 0, timer = null;
+const TOTAL_TIME = 20;
+let timeLeft = TOTAL_TIME;
+
+function renderQuestion(){
+    const item = questions[current];
+    quizBody.innerHTML = '';
+    const qEl = document.createElement('div');
+    qEl.className = 'quiz-question';
+    qEl.innerHTML = '<p class="q-text">'+ item.q +'</p>';
+    const opts = document.createElement('div');
+    opts.className = 'quiz-options';
+    item.options.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-opt';
+        btn.type = 'button';
+        btn.textContent = opt;
+        btn.addEventListener('click', ()=> selectAnswer(i, btn));
+        opts.appendChild(btn);
+    });
+    quizBody.appendChild(qEl);
+    quizBody.appendChild(opts);
+    quizProgress.textContent = (current + 1);
+}
+
+function startTimer(){
+    clearInterval(timer);
+    timeLeft = TOTAL_TIME;
+    if(quizTimerEl) quizTimerEl.textContent = timeLeft;
+    timer = setInterval(()=> {
+        timeLeft--;
+        if(quizTimerEl) quizTimerEl.textContent = timeLeft;
+        if(timeLeft <= 0){
+            clearInterval(timer);
+            showResult(true);
+        }
+    }, 1000);
+}
+
+function resetQuiz(){
+    current = 0; score = 0; timeLeft = TOTAL_TIME;
+    if(quizTotal) quizTotal.textContent = questions.length;
+    if(quizProgress) quizProgress.textContent = current + 1;
+    if(quizNext) quizNext.textContent = "Next";
+    if(quizRetry) quizRetry.classList.add('hidden');
+    renderQuestion();
+    startTimer();
+}
+
+function selectAnswer(idx, btn){
+    const opts = quizBody.querySelectorAll('.quiz-opt');
+    opts.forEach(b => b.disabled = true);
+    const correct = questions[current].a;
+    if(idx === correct){
+        score++; btn.classList.add('correct');
+    } else { btn.classList.add('wrong'); if(opts[correct]) opts[correct].classList.add('correct'); }
+    clearInterval(timer);
+    setTimeout(()=> {
+        if(current < questions.length -1){
+            current++; renderQuestion(); startTimer();
+        } else { showResult(); }
+    }, 700);
+}
+
+function determineBadge(score, timeout){
+    if(timeout) return 'Ransomware Survivor';
+    if(score === 3) return 'Password Pro';
+    if(score === 2) return 'Phishing Aware';
+    return 'Ransomware Survivor';
+}
+
+function showResult(timeout=false){
+    clearInterval(timer);
+    const earned = determineBadge(score, timeout);
+    quizBody.innerHTML = '<div class="quiz-result"><h3>Results</h3><p>You scored '+score+' / '+questions.length+'</p>' +
+        (timeout ? '<p class="timeout-note">Time expired — try again to improve!</p>' : '') +
+        '<p><button id="collectBadge" class="quiz-action">Collect Badge: '+earned+'</button></p>' +
+        '</div>';
+    quizNext.classList.add('hidden');
+    quizRetry.classList.remove('hidden');
+    document.getElementById('collectBadge').addEventListener('click', function(){
+        awardBadge(earned);
+    });
+}
+
+if(openQuizBtn) openQuizBtn.addEventListener('click', ()=>{
+    quizModal.classList.remove('hidden'); quizModal.classList.add('active'); resetQuiz();
+    quizModal.querySelector('.quiz-modal-content').focus();
+});
+if(quizClose) quizClose.addEventListener('click', closeModal);
+if(quizRetry) quizRetry.addEventListener('click', function(){ quizNext.classList.remove('hidden'); resetQuiz(); });
+
+function closeModal(){ quizModal.classList.add('hidden'); quizModal.classList.remove('active'); clearInterval(timer); }
+quizModal.addEventListener('click', function(e){ if(e.target === quizModal) closeModal(); });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !quizModal.classList.contains('hidden')) closeModal(); });
+
+/* ---------- Glitch title (green, rarer) ---------- */
+const logoTitle = document.getElementById('h1');
+function triggerGlitch(){
+    if(!logoTitle) return;
+    logoTitle.classList.add('glitch');
+    setTimeout(()=> logoTitle.classList.remove('glitch'), 220);
+}
+function scheduleGlitch(){
+    const delay = 8000 + Math.random() * 12000; // 8-20s
+    setTimeout(()=> { triggerGlitch(); scheduleGlitch(); }, delay);
+}
+if(logoTitle){ setTimeout(triggerGlitch, 800); scheduleGlitch(); }
+
+/* ---------- Badge system (local-only) ---------- */
+const BADGE_KEY = 'cyber_badges_v1';
+const defaultBadges = [
+    { id: 'phishing', name: 'Phishing Aware', desc: 'Recognizes phishing attempts.', iconSVG: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#00ff88" d="M12 2L3 7v6c0 5 4 9 9 9s9-4 9-9V7l-9-5z"/><path stroke="#003300" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" fill="none"/></svg>' },
+    { id: 'password', name: 'Password Pro', desc: 'Uses strong unique passwords.', iconSVG: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="10" width="16" height="10" rx="2" fill="#7ef0a3"/><path d="M8 10V8a4 4 0 018 0v2" stroke="#003300" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>' },
+    { id: 'ransom', name: 'Ransomware Survivor', desc: 'Knows backup & recovery basics.', iconSVG: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#b6ffd9"/><path d="M9 12h6M9 16h6" stroke="#003300" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>' }
+];
+window.defaultBadges = defaultBadges;
+
+function loadBadges(){ try { const raw = localStorage.getItem(BADGE_KEY); return raw ? JSON.parse(raw) : []; } catch(e){ return []; } }
+function saveBadges(list){ localStorage.setItem(BADGE_KEY, JSON.stringify(list)); }
+
+function displayBadges(){
+    const container = document.getElementById('badgesList');
+    if(!container) return;
+    const list = loadBadges();
+    container.innerHTML = '';
+    if(list.length === 0){ container.innerHTML = '<div class="no-badges">No badges yet — try the quiz!</div>'; return; }
+    list.forEach(b => {
+        const el = document.createElement('div');
+        el.className = 'badge';
+        el.dataset.id = b.id;
+        const iconHtml = b.iconSVG ? b.iconSVG : `<div class="badge-letter">${b.name.split(' ')[0].charAt(0)}</div>`;
+        el.innerHTML = `<div class="badge-icon">${iconHtml}</div><div class="badge-text"><strong>${b.name}</strong><div class="badge-desc">${b.desc}</div></div>`;
+        container.appendChild(el);
+    });
+}
+
+function animateBadgeToTray(startEl, badgeMeta){
+    try {
+        const tray = document.getElementById('badgeTray');
+        const startRect = startEl.getBoundingClientRect();
+        const trayRect = tray.getBoundingClientRect();
+        const fly = document.createElement('div');
+        fly.className = 'badge-fly';
+        fly.innerHTML = badgeMeta.iconSVG || `<svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>`;
+        document.body.appendChild(fly);
+        fly.style.left = (startRect.left + startRect.width/2) + 'px';
+        fly.style.top = (startRect.top + startRect.height/2) + 'px';
+        requestAnimationFrame(()=> {
+            fly.style.transform = `translate(${(trayRect.left + 28) - (startRect.left + startRect.width/2)}px, ${(trayRect.top + 12) - (startRect.top + startRect.height/2)}px) scale(0.6)`;
+            fly.style.opacity = '0.0';
+        });
+        setTimeout(()=> fly.remove(), 900);
+    } catch(e){ /* ignore */ }
+}
+
+function awardBadge(name){
+    const mapping = { 'Phishing Aware': 'phishing', 'Password Pro': 'password', 'Ransomware Survivor': 'ransom' };
+    const id = mapping[name] || ('badge_' + name.toLowerCase().replace(/\s+/g,'_'));
+    const list = loadBadges();
+    if(list.find(x => x.id === id)){ showToast(name + ' already in your collection.'); return; }
+    const meta = (window.defaultBadges || []).find(b => b.id === id) || { id, name, desc: 'Collected', iconSVG: null };
+    list.push(meta); saveBadges(list); displayBadges(); showToast('Badge collected: ' + meta.name);
+    const collectBtn = document.getElementById('collectBadge');
+    if(collectBtn) animateBadgeToTray(collectBtn, meta);
+}
+
+/* ---------- Toast ---------- */
+function showToast(msg){
+    let t = document.getElementById('cgToast');
+    if(!t){ t = document.createElement('div'); t.id='cgToast'; t.className='cg-toast'; document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('visible');
+    clearTimeout(t._to); t._to = setTimeout(()=> t.classList.remove('visible'), 2600);
+}
+
+/* ---------- Badges UI ---------- */
+const openBadgesBtn = document.getElementById('openBadges');
+const badgesPanel = document.getElementById('badgesPanel');
+if(openBadgesBtn) openBadgesBtn.addEventListener('click', ()=>{
+    const expanded = openBadgesBtn.getAttribute('aria-expanded') === 'true';
+    openBadgesBtn.setAttribute('aria-expanded', String(!expanded));
+    badgesPanel.classList.toggle('hidden');
+});
+document.addEventListener('DOMContentLoaded', displayBadges);
+
+/* ---------- Animated background elements ---------- */
+const bg = document.getElementById('animated-bg');
+if(bg){
+    const binaryLayer = bg.querySelector('.binary-layer');
+    for(let i=0;i<30;i++){
+        const span = document.createElement('span');
+        span.className = 'bin';
+        span.textContent = Math.random() > 0.5 ? '0' : '1';
+        span.style.left = (Math.random()*100)+'%';
+        span.style.top = (Math.random()*100)+'%';
+        span.style.animationDelay = (Math.random()*8)+'s';
+        span.style.opacity = (0.05 + Math.random()*0.12).toString();
+        binaryLayer.appendChild(span);
+    }
+    const sphereLayer = bg.querySelector('.sphere-layer');
+    for(let i=0;i<3;i++){
+        const s = document.createElement('div');
+        s.className = 'wf-sphere';
+        s.style.left = (10 + i*30)+'%';
+        s.style.top = (10 + i*20)+'%';
+        s.style.animationDelay = (i*1.2)+'s';
+        sphereLayer.appendChild(s);
+    }
+}
+
+/* ---------- Planet Cyber (Three.js globe) ---------- */
+function loadScriptOnce(src){ return new Promise((res, rej)=> {
+    if(document.querySelector('script[data-src="'+src+'"]')) return res();
+    const s = document.createElement('script'); s.src = src; s.async = true; s.setAttribute('data-src', src);
+    s.onload = res; s.onerror = rej; document.head.appendChild(s);
+});}
+const threeSrc = 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js';
+loadScriptOnce(threeSrc).then(()=> {
+    if(typeof THREE === 'undefined') return;
+    const mount = document.getElementById('globe');
+    if(!mount) return;
+    mount.style.minHeight = '220px';
+    mount.innerHTML = '';
+    const width = mount.clientWidth || 320, height = mount.clientHeight || 220;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, width/height, 0.01, 1000);
+    camera.position.z = 2.6;
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(width, height);
+    renderer.setClearColor(0x000000, 0);
+    mount.appendChild(renderer.domElement);
+    scene.add(new THREE.AmbientLight(0x9fbfff, 0.9));
+    const key = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(5,3,5); scene.add(key);
+    const fill = new THREE.DirectionalLight(0x88caff, 0.25); fill.position.set(-4,-2,-3); scene.add(fill);
+    const geo = new THREE.SphereGeometry(1, 64, 64);
+    const fallbackMat = new THREE.MeshStandardMaterial({ color: 0x072a5f, metalness: 0.1, roughness: 0.7 });
+    const globe = new THREE.Mesh(geo, fallbackMat); scene.add(globe);
+    const rim = new THREE.Mesh(new THREE.SphereGeometry(1.02, 32, 32), new THREE.MeshBasicMaterial({ color: 0x0ea5ff, transparent:true, opacity:0.06 })); scene.add(rim);
+    const ptsGeo = new THREE.BufferGeometry(); const positions=[]; const colors=[];
+    for(let i=0;i<40;i++){
+        const u=Math.random()*Math.PI*2; const v=Math.acos(2*Math.random()-1);
+        const x=Math.sin(v)*Math.cos(u), y=Math.sin(v)*Math.sin(u), z=Math.cos(v);
+        positions.push(x*1.01,y*1.01,z*1.01); colors.push(0.3,0.85,1.0);
+    }
+    ptsGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions,3));
+    ptsGeo.setAttribute('color', new THREE.Float32BufferAttribute(colors,3));
+    const points = new THREE.Points(ptsGeo, new THREE.PointsMaterial({ size:0.02, vertexColors:true })); scene.add(points);
+
+    const textureCandidates = [
+        '/assets/earth.jpg', // prefer local if you add it
+        'https://threejs.org/examples/textures/earth_atmos_2048.jpg'
+    ];
+    function tryLoadTexture(urls, idx=0){
+        return new Promise((resolve,reject)=>{
+            if(idx>=urls.length) return reject();
+            const loader = new THREE.TextureLoader();
+            loader.crossOrigin = 'anonymous';
+            loader.load(urls[idx], tex => { try{ tex.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(),4); }catch(e){}; resolve(tex); },
+                undefined, err => { console.warn('texture fail', urls[idx]); tryLoadTexture(urls, idx+1).then(resolve).catch(reject); });
+        });
+    }
+    tryLoadTexture(textureCandidates).then(tex => {
+        globe.material.dispose();
+        globe.material = new THREE.MeshStandardMaterial({ map: tex, metalness:0.05, roughness:0.8 });
+    }).catch(()=> { /* fallback material stays */ });
+
+    const clock = new THREE.Clock();
+    (function animate(){ requestAnimationFrame(animate); const t = clock.getElapsedTime(); globe.rotation.y = t*0.12; points.rotation.y = t*0.08; rim.rotation.y = t*0.1; renderer.render(scene,camera); })();
+
+    new ResizeObserver(()=> { const w=mount.clientWidth||width; const h=mount.clientHeight||height; renderer.setSize(w,h); camera.aspect = w/h; camera.updateProjectionMatrix(); }).observe(mount);
+}).catch(()=>{/*three load failed - okay*/});
+
+/* ---------- end IIFE ---------- */
+</script>
 </body>
 </html>

@@ -112,3 +112,27 @@ function toggleGroupContact() {
 function showPhone() {
     alert("Call us at: +63 9509034091");
 }
+
+// Enhanced dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!dropdown.contains(event.target)) {
+            dropdownMenu.style.opacity = '0';
+            dropdownMenu.style.visibility = 'hidden';
+        }
+    });
+    
+    // Keyboard navigation support
+    dropdown.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            const isVisible = dropdownMenu.style.visibility === 'visible';
+            dropdownMenu.style.opacity = isVisible ? '0' : '1';
+            dropdownMenu.style.visibility = isVisible ? 'hidden' : 'visible';
+        }
+    });
+});

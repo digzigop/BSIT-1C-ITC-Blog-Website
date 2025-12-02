@@ -25,7 +25,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 16px 24px; /* increased for a slightly larger navbar */
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -39,7 +39,7 @@ html, body {
 .cool-navbar .logo {
     font-family: 'Press Start 2P', cursive;
     color: rgb(255, 174, 0);
-    font-size: 20px;
+    font-size: 28px; /* bumped up the logo size */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     white-space: nowrap;
     flex-shrink: 0;
@@ -58,17 +58,17 @@ html, body {
 
 .nav-btn {
     display: inline-block;
-    padding: 8px 14px;
+    padding: 10px 16px; /* slightly larger click area */
     background: linear-gradient(45deg, rgba(255, 174, 0, 0.8), rgba(255, 220, 0, 0.8));
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 15px; /* increased font-size for better visibility */
     border-radius: 20px;
     border: 2px solid transparent;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     white-space: nowrap;
 }
 
@@ -83,7 +83,7 @@ html, body {
 #h1 {
     font-family: 'Press Start 2P', cursive;
     color: rgb(255, 174, 0);
-    font-size: 40px;
+    font-size: 48px; /* a little bigger for the page title */
     text-shadow: 1px 1px 0px #ccc, 2px 2px 0px #c9c9c9, 3px 3px 0px #bbb,
                  4px 4px 0px #b9b9b9, 5px 5px 0px #aaa, 6px 6px 1px rgba(0,0,0,.1),
                  0px 0px 5px rgba(0,0,0,.1), 1px 1px 3px rgba(0,0,0,.3),
@@ -666,37 +666,71 @@ hr {
     --about-side-gif-size-height: 500px;
 }
 
-/* SIDE WALL GIFS UNIVERSAL */
-#wall-left-gif,
-#wall-right-gif {
-    z-index: 998;
-    width: 250px;         /* Default universal width */
-    height: 100vh;
-    object-fit: cover;
-    position: fixed;
-    top: 0;
-    pointer-events: none; /* So it doesn't interfere with buttons */
+/* Themed decorative side panels (replaces GIFs */
+.side-decor {
+  position: fixed;
+  top: 72px; /* below navbar */
+  bottom: 24px;
+  width: 240px;
+  pointer-events: none;
+  z-index: 995;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 12px;
+}
+.left-decor { left: 8px; }
+.right-decor { right: 8px; }
+
+.sd-pattern{
+  width: 180px;
+  height: calc(100% - 40px);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(0,0,40,0.75), rgba(0,0,80,0.55)),
+    repeating-linear-gradient(180deg, rgba(0,255,136,0.02) 0px, rgba(0,255,136,0.02) 1px, transparent 1px, transparent 6px),
+    radial-gradient(circle at 10% 10%, rgba(0,255,136,0.06), transparent 12%);
+  border: 2px solid rgba(255,174,0,0.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6), inset 0 0 40px rgba(0,0,0,0.6);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.28s ease;
 }
 
-/* Left side */
-#wall-left-gif {
-    left: 0;
+/* GIFs inside the themed side panels (fit & subtle) */
+.sd-pattern {
+  position: relative;
+  overflow: hidden;
 }
 
-/* Right side */
-#wall-right-gif {
-    right: 0;
+/* GIF image styling - low opacity so it blends with theme */
+.sd-pattern .sd-gif {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0.28;           /* increased from 0.14 to be more visible */
+  mix-blend-mode: screen;  
+  pointer-events: none;
+  transition: opacity 300ms ease, transform 600ms cubic-bezier(.2,.9,.3,1);
+  transform-origin: center;
 }
 
-
-body.contact-page {
-    padding-left: calc(var(--contact-side-gif-size-width) + 24px);
-    padding-right: calc(var(--contact-side-gif-size-width) + 24px);
+/* Slight parallax / scale effect on hover of the about-text area (desktop only) */
+.main-content:hover .sd-pattern .sd-gif {
+  transform: scale(1.04);
+  opacity: 0.18;
 }
 
-body.about-page {
-    padding-left: calc(var(--about-side-gif-size-width) + 24px);
-    padding-right: calc(var(--about-side-gif-size-width) + 24px);
+/* Tweak left/right specific positioning if needed */
+.sd-gif-left { transform-origin: left center; }
+.sd-gif-right { transform-origin: right center; }
+
+/* Keep decorations hidden on small screens (unchanged) */
+@media (max-width: 900px){
+  .side-decor { display: none; }
 }
 
 /* ===== NAV TOGGLE (HAMBURGER) ===== */
@@ -711,8 +745,8 @@ body.about-page {
 
 .nav-toggle .bar {
     display: block;
-    width: 22px;
-    height: 3px;
+    width: 26px; /* slightly wider for visibility on mobile */
+    height: 3.5px; /* slightly thicker bars */
     background: white;
     margin: 4px 0;
     border-radius: 2px;
@@ -763,16 +797,16 @@ body.about-page {
     .nav-btn {
         width: 100%;
         text-align: center;
-        padding: 12px 10px;
-        font-size: 14px;
+        padding: 14px 10px;
+        font-size: 15px; /* keep larger on mobile */
     }
 
     .logo {
-        font-size: 24px;
+        font-size: 26px; /* responsive scaling */
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 
     .news-grid {
@@ -925,13 +959,13 @@ body.about-page {
     }
 
     .logo {
-        font-size: 16px;
+        font-size: 18px; /* adjust for very small screens */
     }
 
     .nav-btn {
         width: 100%;
         padding: 8px 12px;
-        font-size: 12px;
+        font-size: 13px; /* slightly reduced on smallest screens */
     }
 
     .contact-container {
@@ -1072,4 +1106,663 @@ body.about-page {
         margin-left: 0;
         margin-right: 0;
     }
+}
+/* ===== MORE DROPDOWN MENU ===== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-toggle i {
+    margin-left: 8px;
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu Container - Matching your cyberpunk theme */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 139, 0.95));
+    min-width: 900px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 174, 0, 0.3);
+    border-radius: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    border: 2px solid rgba(255, 174, 0, 0.5);
+    backdrop-filter: blur(15px);
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dropdown Sections */
+.dropdown-section {
+    border-right: 2px solid rgba(255, 174, 0, 0.3);
+    padding-right: 20px;
+}
+
+.dropdown-section:last-child {
+    border-right: none;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    color: rgb(255, 174, 0);
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 12px 0;
+    margin-bottom: 15px;
+    border-bottom: 3px solid rgb(255, 174, 0);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Audiowide', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 174, 0, 0.5);
+}
+
+.section-title:hover {
+    color: rgb(255, 220, 0);
+    border-bottom-color: rgb(255, 220, 0);
+    text-shadow: 0 0 15px rgba(255, 220, 0, 0.8);
+}
+
+.section-title i {
+    margin-right: 10px;
+    font-size: 16px;
+    color: rgb(255, 174, 0);
+    width: 20px;
+    filter: drop-shadow(0 0 5px rgba(255, 174, 0, 0.5));
+}
+
+.section-title:hover i {
+    color: rgb(255, 220, 0);
+    filter: drop-shadow(0 0 8px rgba(255, 220, 0, 0.8));
+}
+
+/* Subsections */
+.subsection {
+    margin-left: 20px;
+}
+
+.subsection-item {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.subsection-item:hover {
+    color: rgb(255, 220, 0);
+    background: linear-gradient(45deg, rgba(255, 174, 0, 0.1), rgba(255, 220, 0, 0.1));
+    transform: translateX(8px);
+    border-color: rgba(255, 174, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 174, 0, 0.2);
+    text-shadow: 0 0 5px rgba(255, 220, 0, 0.5);
+}
+
+.subsection-item i {
+    margin-right: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    width: 16px;
+    transition: all 0.3s ease;
+}
+
+.subsection-item:hover i {
+    color: rgb(255, 174, 0);
+    filter: drop-shadow(0 0 3px rgba(255, 174, 0, 0.8));
+}
+
+/* Single Items Section */
+.dropdown-single-items {
+    grid-column: span 3;
+    border-top: 2px solid rgba(255, 174, 0, 0.3);
+    padding-top: 20px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.single-item {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 174, 0, 0.5);
+    background: linear-gradient(45deg, rgba(255, 174, 0, 0.2), rgba(255, 220, 0, 0.1));
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.single-item:hover {
+    color: black;
+    background: linear-gradient(45deg, rgb(255, 174, 0), rgb(255, 220, 0));
+    border-color: rgb(255, 220, 0);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 220, 0, 0.5);
+    text-shadow: none;
+}
+
+.single-item i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* Cyberpunk glow effects */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        rgba(255, 174, 0, 0.3), 
+        rgba(255, 220, 0, 0.3), 
+        rgba(255, 174, 0, 0.3)
+    );
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu::before {
+    opacity: 1;
+}
+
+/* Enhanced animations matching your theme */
+@keyframes cyberpunkGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 174, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 220, 0, 0.8);
+    }
+}
+
+.section-title:hover {
+    animation: cyberpunkGlow 2s ease-in-out infinite;
+}
+
+/* Mobile Responsive - Matching your existing breakpoints */
+@media (max-width: 900px) {
+    .dropdown-menu {
+        min-width: 100vw;
+        right: -20px;
+        grid-template-columns: 1fr;
+        max-height: 70vh;
+        overflow-y: auto;
+        padding: 20px;
+        border-radius: 0 0 15px 15px;
+    }
+    
+    .dropdown-section {
+        border-right: none;
+        border-bottom: 2px solid rgba(255, 174, 0, 0.3);
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        padding-right: 0;
+    }
+    
+    .dropdown-single-items {
+        grid-column: span 1;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .single-item {
+        width: 100%;
+        font-size: 13px;
+        padding: 14px 20px;
+    }
+    
+    /* Mobile dropdown positioning */
+    .dropdown-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        transform: translateY(-100%);
+        border-radius: 0;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .dropdown-menu {
+        padding: 15px;
+        gap: 20px;
+    }
+    
+    .section-title {
+        font-size: 13px;
+        padding: 10px 0;
+        margin-bottom: 12px;
+    }
+    
+    .subsection-item {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    .single-item {
+        font-size: 12px;
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dropdown-menu {
+        min-width: 100vw;
+        padding: 12px;
+        gap: 15px;
+    }
+    
+    .section-title {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+    
+    .subsection {
+        margin-left: 15px;
+    }
+    
+    .subsection-item {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+    
+    .single-item {
+        font-size: 11px;
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-buttons.active .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    
+    .nav-buttons.active .dropdown:hover .dropdown-menu {
+        transform: none;
+    }
+}
+
+footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 10px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+/* Interactive CTA (Quiz + Tip) */
+.interactive-section {
+    max-width: 1100px;
+    margin: 18px auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.45);
+    border: 2px solid rgba(255,174,0,0.15);
+}
+
+.quiz-cta h2 {
+    font-family: 'Audiowide', sans-serif;
+    color: rgb(255,220,0);
+    margin-bottom: 8px;
+}
+
+.quiz-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    margin-top: 6px;
+}
+
+.quiz-button {
+    background: linear-gradient(45deg, rgb(255,174,0), rgb(255,220,0));
+    color: black;
+    border: none;
+    padding: 12px 22px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(255,220,0,0.25);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    margin-top: 8px;
+}
+.quiz-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,220,0,0.35); }
+
+/* Tips */
+.tips-of-day {
+    max-width: 420px;
+    text-align: left;
+}
+.tips-of-day h3 {
+    margin-bottom: 6px;
+    color: rgb(255,220,0);
+}
+.tip-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+.tip-wrap #tipText { flex: 1; font-family: 'Audiowide', sans-serif; font-size: 16px; }
+.tip-controls { display:flex; gap:6px; }
+.tip-btn {
+    background: rgba(255,174,0,0.14);
+    border: 1px solid rgba(255,174,0,0.2);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.tip-rotate-note { display:block; margin-top:6px; font-size:12px; color: rgba(255,255,255,0.7); }
+
+/* Quiz modal (compact) */
+.quiz-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    background: rgba(0,0,0,0.7);
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+.quiz-modal.hidden { display: none; opacity: 0; pointer-events: none; }
+
+.quiz-modal-content {
+    background: linear-gradient(135deg, rgba(0,0,20,0.98), rgba(0,0,139,0.98));
+    color: white;
+    border-radius: 14px;
+    padding: 20px;
+    width: 420px;
+    max-width: 92%;
+    border: 3px solid rgb(255,220,0);
+    box-shadow: 0 10px 40px rgba(255,174,0,0.12);
+    outline: none;
+}
+
+.quiz-close {
+    position: absolute;
+    margin-left: 380px;
+    margin-top: -6px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* meta */
+.quiz-meta { display:flex; justify-content:space-between; gap:10px; margin-bottom:10px; font-size:13px; color: rgba(255,255,255,0.9); }
+.quiz-body { min-height: 120px; display:flex; flex-direction:column; gap:12px; justify-content:center; align-items:flex-start; }
+.quiz-question .q-text { font-weight:700; color: rgb(255,220,0); margin-bottom:8px; }
+.quiz-options { display:flex; flex-direction:column; gap:8px; width:100%; }
+.quiz-opt {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,174,0,0.08);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+.quiz-opt:hover { transform: translateX(6px); }
+.quiz-opt.correct { background: rgba(46, 204, 113, 0.15); border-color: rgba(46, 204, 113, 0.4); }
+.quiz-opt.wrong { background: rgba(231, 76, 60, 0.12); border-color: rgba(231, 76, 60, 0.35); }
+
+.quiz-footer { display:flex; justify-content:flex-end; gap:10px; margin-top:12px; }
+.quiz-action {
+    background: linear-gradient(45deg, rgb(255,174,0), rgb(255,220,0));
+    color: black;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight:700;
+}
+.quiz-action.hidden { display:none; }
+
+.quiz-result { text-align:center; padding:10px; }
+.timeout-note { color: #ffb3b3; }
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+    .interactive-section { flex-direction: column; align-items: stretch; gap:12px; padding:12px; }
+    .quiz-close { margin-left: auto; margin-top: -8px; position: relative; }
+}
+
+/* --- Title glitch effect (now green) --- */
+@keyframes glitch-anim {
+  0% { transform: translate(0); clip-path: inset(0 0 0 0); }
+  20% { transform: translate(-2px, 0); clip-path: inset(2% 0 10% 0); }
+  40% { transform: translate(2px, -1px); clip-path: inset(10% 0 2% 0); }
+  60% { transform: translate(-1px, 1px); clip-path: inset(4% 0 8% 0); }
+  80% { transform: translate(0); clip-path: inset(0 0 0 0); }
+  100% { transform: translate(0); clip-path: inset(0 0 0 0); }
+}
+.logo.glitch {
+  position: relative;
+  color: rgb(0,200,120); /* green glitch color */
+  animation: glitch-anim 0.22s steps(3, end) 1;
+  text-shadow: 0 0 8px rgba(0,255,150,1);
+  filter: drop-shadow(0 0 8px rgba(0,255,150,0.15));
+}
+.logo.glitch::before,
+.logo.glitch::after {
+  content: attr(class);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  mix-blend-mode: screen;
+}
+/* make the colored layers offset more (green-tinted) */
+.logo.glitch::before { color: #eafff0; transform: translate(-2px, -1px) skewX(-2deg); opacity: .9; }
+.logo.glitch::after  { color: #00ff88; transform: translate(2px, 1px) skewX(2deg); opacity: .85; }
+
+/* --- Globe styles (restored) --- */
+.globe-wrap {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  width: 320px;
+  max-width: 36%;
+  min-width: 220px;
+}
+.globe {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,150,255,0.08);
+  background: transparent;
+}
+.globe-label {
+  color: rgba(255,255,255,0.78);
+  font-size: 12px;
+  text-align:center;
+}
+
+/* --- Enhanced badge visuals & animations --- */
+.badges-panel { 
+  /* compact floating panel instead of filling the screen */
+  position: absolute;
+  left: 0;
+  bottom: 56px; /* sit above the Badges button */
+  transform-origin: bottom left;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  max-height: 60vh;
+  overflow: auto;
+  padding: 10px;
+  background: linear-gradient(180deg, rgba(0,0,10,0.85), rgba(0,0,60,0.75));
+  border: 1px solid rgba(0,255,136,0.08);
+  border-radius: 10px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 6px 18px rgba(0,255,136,0.04);
+  z-index: 5001;
+}
+
+/* keep it tidy on very small screens but still not full-screen */
+@media (max-width: 520px) {
+  .badges-panel {
+    position: fixed;
+    left: 12px;
+    bottom: 72px;
+    width: calc(100% - 24px);
+    max-width: none;
+    max-height: 48vh;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+
+/* ensure the hidden utility still works */
+.badges-panel.hidden { display: none !important; }
+
+/* Replace/override badge button so it matches site theme and keeps expanded state visuals */
+.badge-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: linear-gradient(45deg, rgba(255,174,0,0.95), rgba(255,220,0,0.95));
+    color: black !important;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    box-shadow: 0 6px 18px rgba(255,220,0,0.18);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.35);
+    white-space: nowrap;
+    font-family: 'Audiowide', 'Press Start 2P', sans-serif;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Hover / focus states */
+.badge-toggle:hover,
+.badge-toggle:focus {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(255,220,0,0.36);
+    border-color: rgba(255,220,0,0.85);
+    outline: none;
+}
+
+/* Expanded/open state - visually matches other active nav controls */
+.badge-toggle[aria-expanded="true"] {
+    box-shadow: 0 14px 36px rgba(255,220,0,0.28);
+    transform: translateY(-4px) scale(1.035);
+    border-color: rgba(255,220,0,0.9);
+    background: linear-gradient(45deg, rgba(255,190,0,1), rgba(255,235,0,1));
+}
+
+/* Small icon/label spacing if you add an icon later */
+.badge-toggle svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Ensure badge panel remains anchored above the button (no full-screen fill) */
+.badge-tray { position: fixed; left: 12px; bottom: 12px; z-index: 5000; display:flex; flex-direction:column; gap:8px; align-items:flex-start; }
+
+/* On very small screens keep usable but themed */
+@media (max-width: 520px) {
+  .badge-toggle {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+}
+
+/* --- Restore/keep Contact Us GIFs intact --- */
+/* These rules reinstate the original fixed side-GIF styling so ContactUs page GIFs are not affected. */
+#wall-left-gif,
+#wall-right-gif {
+  position: fixed;
+  top: 0;
+  width: 250px;            /* original width */
+  height: 100vh;          /* full-height decorative GIF */
+  object-fit: cover;
+  pointer-events: none;   /* don't block UI */
+  z-index: 9998;          /* above decorative panels but below nav (nav z-index:1000) */
+}
+
+/* side placement */
+#wall-left-gif { left: 0; }
+#wall-right-gif { right: 0; }
+
+/* Contact page GIFs: visible above page background (no color blending), but under navbar */
+#wall-left-gif,
+#wall-right-gif {
+  position: fixed;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;     /* ensure clicks pass through */
+  z-index: 50;              /* above background but well below navbar (nav z-index:1000) */
+  opacity: 0.95;            /* keep visible but unobtrusive */
+  mix-blend-mode: normal;   /* remove overlay tint */
+  background: transparent;
 }
